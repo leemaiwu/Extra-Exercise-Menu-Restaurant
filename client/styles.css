@@ -137,7 +137,6 @@ body {
     font-size: 20px;
     font-family: "Monospace", "Copperplate";
     margin-left: 10px;
-
 }:focus {
     outline: none;
 }
@@ -296,8 +295,8 @@ footer {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: flex-start
-
+    align-items: flex-start;
+    text-shadow: 2px 1px 1px rgb(0, 0, 0);
 }
 
 .ordered-list {
@@ -315,8 +314,7 @@ footer {
     text-transform: uppercase;
     font-weight: 700;
     background-color: transparent;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     text-transform: uppercase;
     text-shadow: 2px 1px 1px rgb(0, 0, 0);
 }
-  

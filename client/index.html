@@ -12,7 +12,7 @@
     <h2 class="order-title">Order from our Menu</h2><br>
 
     <div class="center-order-button">
-        <button class="order-button" onclick=openForm()>Order</button>
+        <button class="order-button">Order</button>
     </div><br><br>
 
     <div class="center-form">
@@ -20,7 +20,7 @@
             <div class="form-box order">
                 <h3>Place your Order</h3><br>
 
-                <form autocomplete="off">
+                <form autocomplete="off" id="order-form">
                     <div class="input-box">
                         <label>Name: </label>
                         <input type="text" id="name" required>
@@ -40,7 +40,7 @@
                         <br>
                         <select name="drink" id="drink" class="drink-options">
                             <div>
-                            <option value="value" selected> Select </option>
+                            <option value="None" selected> Select </option>
                             <option value="Lemonade">Lemonade</option>
                             <option value="Iced Tea">Iced Tea</option>
                             <option value="Sparkling Water">Sparkling Water</option>
@@ -64,9 +64,8 @@
                     <div class="pickup-time" id="pickup-popup" style="display:none">
                         <div><br>
                         <label class="pickup-title">Pickup Time:</label>
-                        <select name="pickup-time" id="pickup-time" class="time-options">
-                            <div>
-                            <option value="value" selected> Select </option>
+                        <select name="pickup-time" id="pickup-time" class="time-options" required>
+                            <option value="" selected> Select </option>
                             <option value="Morning">Morning (9-11AM)</option>
                             <option value="Afternoon">Afternoon (12-4PM)</option>
                             <option value="Evening">Evening (5-8PM)</option>

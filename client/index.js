@@ -4,7 +4,7 @@ const btnPopup = document.querySelector('.order-button')
 const toGoRadio = document.getElementById('to-go')
 const pickupPopup = document.getElementById('pickup-popup')
 const dineInRadio = document.getElementById('dine-in')
-const form = document.querySelector('form')
+const orderForm = document.getElementById('order-form')
 const orderContainer = document.getElementById('orders-container')
 
 const baseURL = 'http://localhost:5500/'
@@ -15,17 +15,22 @@ function placeOrder () {
 
 function orderWindow () {
     wrapper.classList.add('active-popup')
-    form.reset()
+    orderForm.reset()
+    const inOrGoRadio = document.querySelector(`input[name="in-or-go"]:checked`)
+    if (!inOrGoRadio) {
+        pickupPopup.style.display = 'none'
+        document.getElementById('pickup-time').removeAttribute('required')
+    }
 }
 
 function hideOrderWindow () {
     wrapper.classList.remove('active-popup')
-    }
+}
 
 function displayPickup () {
     if (toGoRadio.checked) {
         pickupPopup.style.display = 'block'
-        document.getElementById('pickup-time').setAttribute('required', true)
+        document.getElementById('pickup-time').setAttribute('required', 'required')
     }
 }
 
@@ -43,18 +48,35 @@ function submitOrder (event) {
     const sides = document.getElementById('sides').value
     const drink = document.getElementById('drink').value
     const inOrGoRadio = document.querySelector(`input[name="in-or-go"]:checked`)
-    const inOrGo = inOrGoRadio ? inOrGoRadio.value : null
-    const pickupTime = document.getElementById('pickup-time')?.value
-
-    let diningPreference = inOrGo === 'private' ? `To Go, Pickup Time: ${pickupTime}` : 'Dine in'
-
+    let inOrGo
+    let pickupTime
+    let diningPreference
+  
+    if (inOrGoRadio) {
+        inOrGo = inOrGoRadio.value
+    } else {
+        inOrGo = null
+    }
+  
+    if (document.getElementById('pickup-time')) {
+        pickupTime = document.getElementById('pickup-time').value
+    } else {
+        pickupTime = null
+    }
+  
+    if (inOrGo === 'private') {
+        diningPreference = `To Go, Pickup Time: ${pickupTime}`
+    } else {
+        diningPreference = 'Dine in'
+    }
+  
     const order = document.createElement('div')
     order.classList.add('ordered-list')
     order.innerHTML = `
-    <h4>Name: ${name}</h4>
-    <p>Meal: ${meal} with ${sides}</p>
-    <p>Drink: ${drink}</p>
-    <p>${diningPreference}</p>
+      <h4>Name: ${name}</h4>
+      <p>Meal: ${meal} with ${sides}</p>
+      <p>Drink: ${drink}</p>
+      <p>${diningPreference}</p>
     `
     orderContainer.appendChild(order)
     hideOrderWindow()
@@ -64,4 +86,4 @@ orderLink.addEventListener('click', placeOrder)
 btnPopup.addEventListener('click', orderWindow)
 toGoRadio.addEventListener('change', displayPickup)
 dineInRadio.addEventListener('change', hidePickup)
-form.addEventListener('submit', submitOrder)
+orderForm.addEventListener('submit', submitOrder)

@@ -56,5 +56,5 @@ module.exports = {
         .catch((err) => {
             console.log(`Error seeding database. ${err}`)
         })
-    }
+    },
 }
