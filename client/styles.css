@@ -31,7 +31,7 @@ body {
     letter-spacing: 2px;
     background-color: transparent;
     backdrop-filter: blur(10px);
-    text-shadow: 2px 1px 1px rgb(0, 0, 0);
+    text-shadow: 2px 1px 1px rgb(38, 38, 38);
 }
 
 .center-order-button {
@@ -301,11 +301,12 @@ footer {
 
 .ordered-list {
     color: white;
-    margin: 20px;
+    margin: 15px;
+    margin-left: 30px;
     padding: 20px;
     outline: none;
     font-size: 14px;
-    border-radius: 50px;
+    border-radius: 30px;
     transition-property: background-color, border-color, color, box-shadow,filter;
     transition-duration: .3s;
     border: 1px solid transparent;
@@ -316,5 +317,69 @@ footer {
     background-color: transparent;
     backdrop-filter: blur(20px);
     text-transform: uppercase;
-    text-shadow: 2px 1px 1px rgb(0, 0, 0);
+    text-shadow: 2px 1px 1px rgb(36, 36, 36);
+}
+
+/* Placed Orders 'Edit' and 'Delete' Buttons */
+.bothOrderedButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.orderedEditButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 50px;
+    transition-property: background-color, border-color, color, box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #e4e2e2;
+    box-shadow: inset 0 0 0 1px #e4e2e2;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    height: 40px;
+    width: 120px;
+}
+
+:hover.orderedEditButton{
+    color: #fff;
+    background-color: #e4e2e2;
+    transition: .35s;
+}
+
+.orderedDeleteButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 50px;
+    transition-property: background-color, border-color, color, box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #e4e2e2;
+    box-shadow: inset 0 0 0 1px #e4e2e2;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    height: 40px;
+    width: 120px;
+}
+
+:hover.orderedDeleteButton{
+    color: #fff;
+    background-color: #e4e2e2;
+    transition: .35s;
 }

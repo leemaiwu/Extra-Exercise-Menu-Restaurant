@@ -51,32 +51,32 @@ function submitOrder (event) {
     let inOrGo
     let pickupTime
     let diningPreference
-  
     if (inOrGoRadio) {
         inOrGo = inOrGoRadio.value
     } else {
         inOrGo = null
     }
-  
     if (document.getElementById('pickup-time')) {
         pickupTime = document.getElementById('pickup-time').value
     } else {
         pickupTime = null
     }
-  
     if (inOrGo === 'private') {
         diningPreference = `To Go, Pickup Time: ${pickupTime}`
     } else {
         diningPreference = 'Dine in'
     }
-  
     const order = document.createElement('div')
     order.classList.add('ordered-list')
     order.innerHTML = `
-      <h4>Name: ${name}</h4>
-      <p>Meal: ${meal} with ${sides}</p>
-      <p>Drink: ${drink}</p>
-      <p>${diningPreference}</p>
+        <h4>Name: ${name}</h4>
+        <p>Meal: ${meal} with ${sides}</p>
+        <p>Drink: ${drink}</p>
+        <p>${diningPreference}</p>
+        <div class="bothOrderedButtons">
+        <button class="orderedEditButton">Edit</button>
+        <button class="orderedDeleteButton">Delete</button>
+        </div>
     `
     orderContainer.appendChild(order)
     hideOrderWindow()
