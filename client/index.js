@@ -6,6 +6,7 @@ const pickupPopup = document.getElementById('pickup-popup')
 const dineInRadio = document.getElementById('dine-in')
 const orderForm = document.getElementById('order-form')
 const orderContainer = document.getElementById('orders-container')
+let counter = 1
 
 const baseURL = 'http://localhost:5500/'
 
@@ -48,6 +49,7 @@ function submitOrder (event) {
     const sides = document.getElementById('sides').value
     const drink = document.getElementById('drink').value
     const inOrGoRadio = document.querySelector(`input[name="in-or-go"]:checked`)
+    const pickingUp = document.getElementById('pickup-time').value
     let inOrGo
     let pickupTime
     let diningPreference
@@ -55,31 +57,42 @@ function submitOrder (event) {
         inOrGo = inOrGoRadio.value
     } else {
         inOrGo = null
-    }
+        }
     if (document.getElementById('pickup-time')) {
         pickupTime = document.getElementById('pickup-time').value
     } else {
         pickupTime = null
-    }
+        }
     if (inOrGo === 'private') {
         diningPreference = `To Go, Pickup Time: ${pickupTime}`
     } else {
         diningPreference = 'Dine in'
-    }
-    const order = document.createElement('div')
-    order.classList.add('ordered-list')
-    order.innerHTML = `
-        <h4>Name: ${name}</h4>
-        <p>Meal: ${meal} with ${sides}</p>
-        <p>Drink: ${drink}</p>
-        <p>${diningPreference}</p>
-        <div class="bothOrderedButtons">
-        <button class="orderedEditButton">Edit</button>
-        <button class="orderedDeleteButton">Delete</button>
-        </div>
-    `
-    orderContainer.appendChild(order)
-    hideOrderWindow()
+        }
+
+    let body = {name, meal, sides, drink, inOrGoRadio, pickingUp}
+
+    axios.post('http://localhost:5500/order', body)
+    .then((response) => {
+        let data = response.data
+        console.log(data)
+
+        const order = document.createElement('div')
+        order.classList.add('ordered-list')
+        order.innerHTML = `
+            <p># ${counter}</p>
+            <p>Name: ${name}</p>
+            <p>Meal: ${meal} with ${sides}</p>
+            <p>Drink: ${drink}</p>
+            <p>${diningPreference}</p>
+            <div class="bothOrderedButtons">
+            <button class="orderedEditButton">Edit</button>
+            <button class="orderedDeleteButton">Delete</button>
+            </div>
+        `
+        orderContainer.appendChild(order)
+        hideOrderWindow()
+        counter += 1
+    })
 }
 
 orderLink.addEventListener('click', placeOrder)

@@ -47,7 +47,6 @@ body {
     cursor: pointer;
     font-size: 14px;
     border-radius: 50px;
-    transition-property: background-color, border-color, color, box-shadow,filter;
     transition-duration: .3s;
     border: 1px solid transparent;
     letter-spacing: 3px;
@@ -252,7 +251,6 @@ body {
     outline: none;
     border-radius: 20px;
     cursor: pointer;
-    transition-property: background-color, border-color, color, box-shadow,filter;
     background-color: transparent;
     color: white;
     box-shadow: inset 0 0 0 1px #ffffff;
@@ -276,7 +274,7 @@ body {
 .placed-orders-title {
     display: flex;
     width: 100%;
-    margin-top: 27px;
+    margin-top: 25px;
     justify-content: center;
     color: #e4e2e2;
     font-family: "Courier New";
@@ -284,7 +282,7 @@ body {
     font-size: 18px;
     border-top: solid 1px #e4e2e2;
     border-bottom: solid 1px #e4e2e2;
-    padding: 3px;
+    padding: 4px;
     letter-spacing: 2px;
     background-color: transparent;
     backdrop-filter: blur(10px);
@@ -306,8 +304,7 @@ footer {
     padding: 20px;
     outline: none;
     font-size: 14px;
-    border-radius: 30px;
-    transition-property: background-color, border-color, color, box-shadow,filter;
+    border-radius: 32px;
     transition-duration: .3s;
     border: 1px solid transparent;
     box-shadow: inset 0 0 0 1px #e4e2e2;
@@ -336,7 +333,6 @@ footer {
     cursor: pointer;
     font-size: 12px;
     border-radius: 50px;
-    transition-property: background-color, border-color, color, box-shadow,filter;
     transition-duration: .3s;
     border: 1px solid transparent;
     letter-spacing: 3px;
@@ -347,7 +343,7 @@ footer {
     background-color: transparent;
     backdrop-filter: blur(10px);
     height: 40px;
-    width: 120px;
+    width: 110px;
 }
 
 :hover.orderedEditButton{
@@ -364,7 +360,6 @@ footer {
     cursor: pointer;
     font-size: 12px;
     border-radius: 50px;
-    transition-property: background-color, border-color, color, box-shadow,filter;
     transition-duration: .3s;
     border: 1px solid transparent;
     letter-spacing: 3px;
@@ -375,7 +370,7 @@ footer {
     background-color: transparent;
     backdrop-filter: blur(10px);
     height: 40px;
-    width: 120px;
+    width: 110px;
 }
 
 :hover.orderedDeleteButton{

@@ -1,18 +1,18 @@
-const Sequelize = require('sequelize')
-const orders = require('../db.json')
+// const Sequelize = require('sequelize')
+// const orders = require('../db.json')
 
-require('dotenv').config()
+// require('dotenv').config()
 
-const { CONNECTION_STRING } =  process.env
+// const { CONNECTION_STRING } =  process.env
 
-const sequelize = new Sequelize(CONNECTION_STRING, {
-    dialect: 'postgres',
-    dialectOptions: {
-        ssl: {
-            rejectUnauthorized: false
-        }
-    }
-})
+// const sequelize = new Sequelize(CONNECTION_STRING, {
+//     dialect: 'postgres',
+//     dialectOptions: {
+//         ssl: {
+//             rejectUnauthorized: false
+//         }
+//     }
+// })
 
 module.exports = {
     seed: (req, res) => {
@@ -33,7 +33,7 @@ module.exports = {
             meal VARCHAR NOT NULL,
             sides VARCHAR NOT NULL,
             drink_id INT NOT NULL REFERENCES drink(id),
-            is_to_go BOOLEAN NOT NULL,
+            is_to_go VARCHAR NOT NULL,
             pickup_time INT REFERENCES pickup_time(id)
         );
 
